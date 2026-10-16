@@ -1,3 +1,11 @@
+class EmailClient {
+    static int count = 0;
+    EmailClient() {
+        count++;
+        System.out.println("EmailClient created. Total now: " + count);
+    }
+    void send(String to) { System.out.println("sending to " + to); }
+}
 class OrderService {
     private final EmailClient email;
 
@@ -36,7 +44,7 @@ public class Step3 {
 
         OrderService orders = new OrderService(shared);
         InvoiceService invoices = new InvoiceService(shared);
-
+        
         orders.placeOrder();
         invoices.sendInvoice();
     }
